@@ -14,7 +14,8 @@ def analyze_ticket(message: str) -> TicketAnalysis:
                 {"role":"system", "content":SYSTEM_PROMPT},
                 {"role":"user", "content":message}
             ],
-            format=TicketAnalysis.model_json_schema()
+            format=TicketAnalysis.model_json_schema(),
+            options={"temperature":0}
         )
     
         result= response.message.content
