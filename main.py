@@ -1,16 +1,14 @@
 from schemas import TicketAnalysis
 from llm import analyze_ticket
 
-message = """
-I've been charged twice for my subscription.
-Nobody from support is responding.
-I need my money back immediately!
-"""
+test_messages = [
+    "I was charged twice for my subscription.",
 
-result= analyze_ticket(message)
+    "My application crashes every time I open it.",
 
-print(result)
-print(type(result))
+    "I love your product! The new update is amazing."
+]
 
-print("\nJSON Output:")
-print(result.model_dump_json(indent=2))
+for message in test_messages:
+    result = analyze_ticket(message)
+    print(result.model_dump_json(indent=2))
